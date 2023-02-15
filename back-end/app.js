@@ -40,6 +40,27 @@ app.get('/messages', async (req, res) => {
   }
 })
 
+//route for 'About Us' 
+app.get('/aboutus', (req,res)=>{
+  const about_h1 = "About Us"
+  const about_p1 = "Hi, I'm Andrew! I am a junior studying Computer Science. In my free time, I like to make music and hang out with my friends. I was born in Wilmington, Delaware, but I lived in Chadds Ford, Pennsylvania for most of my life."
+  const about_p2 = "In terms of professional interests within tech, my career goal is to work in Tech Sales, Product Management, or Software Engineering."
+  const imgURL = '/pictureofme.jpg'
+
+  const aboutUs = {
+    title: about_h1,
+    paragraph1: about_p1,
+    paragraph2: about_p2,
+    img: imgURL
+  }
+  try{
+    res.json(aboutUs)
+  } catch (err){
+    console.log(`Error: ${err}`)
+  }
+
+})
+
 // a route to handle fetching a single message by its id
 app.get('/messages/:messageId', async (req, res) => {
   // load all messages from database
